@@ -12,4 +12,10 @@ public class Status : MonoBehaviour {
     private void Awake() {
         vida = vidaInicial;
     }
+
+    public void uparVida(int vida)
+    {
+        vidaInicial = vidaInicial + vida;
+    }
+
 }

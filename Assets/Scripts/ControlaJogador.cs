@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
 
@@ -8,9 +9,11 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
     public AudioClip somDano;
     public Status statusJogador;
 
+    public int LevelJogador = 1;
     private Vector3 direcao;
     private MovimentaJogador movimentaJogador;
     private AnimaPersonagem animaJogador;
+    private bool jaFezMudancaDeLevel = false;
 
     private void Start() {
         movimentaJogador = GetComponent<MovimentaJogador>();
@@ -22,8 +25,8 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
         float eixoX = Input.GetAxis("Horizontal");
         float eixoZ = Input.GetAxis("Vertical");
         direcao = new Vector3(eixoX, 0, eixoZ);
-
         animaJogador.Movimentar(direcao.magnitude);
+        checaLevelUp();
     }
 
     private void FixedUpdate() {
@@ -53,5 +56,28 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
         }
 
         controlaInterface.AtualizaSliderVida();
+    }
+
+    private void checaLevelUp()
+    {
+        int quantidadeMortos = controlaInterface.getQuantidadeMortos();
+
+        if (!jaFezMudancaDeLevel && quantidadeMortos % 2 == 0 && quantidadeMortos != 0)
+        {
+            levelUP();
+            jaFezMudancaDeLevel = true;
+            controlaInterface.AtualizaLevelJogador();
+        }
+        else if (quantidadeMortos % 2 != 0)
+        {
+            jaFezMudancaDeLevel = false; // Permite fazer a mudança de level novamente
+        }
+    }
+
+    private void levelUP()
+    {
+        LevelJogador = LevelJogador + 1;
+        statusJogador.uparVida(20);
+        CurarVida((int)statusJogador.vidaInicial);
     }
 }
