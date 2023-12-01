@@ -78,6 +78,7 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
     {
         LevelJogador = LevelJogador + 1;
         statusJogador.uparVida(20);
+        controlaInterface.sliderVidaJogador.maxValue = statusJogador.vidaInicial;
         CurarVida((int)statusJogador.vidaInicial);
     }
 }
