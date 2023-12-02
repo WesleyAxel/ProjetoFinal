@@ -8,6 +8,7 @@ TagManager:
   - Jogador
   - Interface
   - Chefe
+  - NPC
   layers:
   - Default
   - TransparentFX
