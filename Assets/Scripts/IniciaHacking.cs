@@ -8,20 +8,29 @@ using UnityEngine.UI;
 public class IniciaHacking : MonoBehaviour
 {
 
+    public Text textoObjetivo;
     public Text textoIniciaHacking;
+    public AudioSource audioMusica;
+    public AudioSource audioHacking;
     public int timer = 120;
+
+    private GameObject[] spawns;
+    private Boolean started = false;
     
     private string textoBase;
     private int loading = 0;
     private float counter = 0;
 
-    
 
     // Start is called before the first frame update
     void Start()
     {
      textoIniciaHacking.gameObject.SetActive(false);   
+     textoObjetivo.gameObject.SetActive(false);   
+
      textoBase = textoIniciaHacking.text;
+
+     MostraObjetivo(0);
     }
 
     // Update is called once per frame
@@ -30,7 +39,31 @@ public class IniciaHacking : MonoBehaviour
         ChecaEAtualizaCarregamento();
     }
 
-    private void ChecaEAtualizaCarregamento() {
+    private void IniciaGeradores()
+    {
+        spawns ??= GameObject.FindGameObjectsWithTag("Gerador");
+
+        foreach (GameObject spawn in spawns) {
+            GeradorZumbis gerador = spawn.GetComponent<GeradorZumbis>();
+            gerador.AtualizarEstado(true);
+        }
+    }
+
+    private void MostraObjetivo(int etapa)
+    {
+        string textoObjetivoAtual = textoObjetivo.text;
+
+        if (etapa == 1) {
+            textoObjetivoAtual = "<color=red>SOBREVIVA</color>";
+        }
+
+        textoObjetivo.text = textoObjetivoAtual;
+        
+        StartCoroutine(DesaparecerTexto(5, textoObjetivo));
+    }
+
+    private void ChecaEAtualizaCarregamento() 
+    {
         
         if (textoIniciaHacking.IsActive() && counter >= 1) {
             int currentLoading = Math.Min(loading * 100 / timer, 100);
@@ -55,7 +88,7 @@ public class IniciaHacking : MonoBehaviour
         counter += Time.deltaTime;
     }
 
-      private IEnumerator DesaparecerTexto(float tempoSumir, Text texto) {
+    private IEnumerator DesaparecerTexto(float tempoSumir, Text texto) {
         texto.gameObject.SetActive(true);
         
         Color corTexto = texto.color;
@@ -70,17 +103,31 @@ public class IniciaHacking : MonoBehaviour
         // SceneManager.LoadScene()
     }
 
-    private void IniciaEvento() 
+    // Controle da música e tempo de execução
+    private IEnumerator TocarMusica(float tempoSumir, AudioSource audio) {
+        audio = audio.GetComponent<AudioSource>();
+        audio.Play();
+        
+        yield return new WaitForSeconds(tempoSumir);
+        
+        audio.Stop();
+    }
+
+    private void ExecutarEvento() 
     {
+        MostraObjetivo(1);
+        IniciaGeradores();
         StartCoroutine(DesaparecerTexto(timer + 5, textoIniciaHacking));
+        StartCoroutine(TocarMusica(timer + 5, audioMusica));
+        StartCoroutine(TocarMusica(timer + 5, audioHacking));
+        started = true;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Jogador")) {
-            print("Colidiu!");
-
-            IniciaEvento();
+        // Jogador encontra objetivo
+        if (!started && collision.gameObject.CompareTag("Jogador")) {
+            ExecutarEvento();
         }
     }
 }
