@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GeradorChefe : MonoBehaviour {
+
+    public bool active = true;
     public float tempoEntreGeracoes = 60;
     public GameObject chefe;
     public Transform[] posicoesPossiveisGeracao;
@@ -18,12 +21,16 @@ public class GeradorChefe : MonoBehaviour {
     }
 
     private void Update() {
-        if (Time.timeSinceLevelLoad > tempoParaProximaGeracao) {
+        if (active && Time.timeSinceLevelLoad > tempoParaProximaGeracao) {
             Vector3 posicaoCriacao = CalcularPosicaoMaisDistanteDoJogador();
             Instantiate(chefe, posicaoCriacao, Quaternion.identity);
             scriptControlaInterface.AparecerTextoChefeCriado();
             tempoParaProximaGeracao = Time.timeSinceLevelLoad + tempoEntreGeracoes;
         }
+    }
+
+    public void UpdateStatus (Boolean status) {
+        active = status;
     }
 
     Vector3 CalcularPosicaoMaisDistanteDoJogador() {

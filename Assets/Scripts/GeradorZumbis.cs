@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GeradorZumbis : MonoBehaviour {
 
+    public bool active = true;
     public GameObject zumbi;
     public float tempoGerarZumbi = 1;
     public LayerMask layerZumbi;
@@ -21,8 +23,10 @@ public class GeradorZumbis : MonoBehaviour {
         jogador = GameObject.FindWithTag(Tags.Jogador);
         contadorDeAumentarDificuldade = tempoProximoAumentoDeDificuldade;
 
-        for (int i = 0; i < quantidadeMaximaZumbisVivos; i++) {
-            StartCoroutine(GerarZumbi());
+        if (active) {
+            for (int i = 0; i < quantidadeMaximaZumbisVivos; i++) {
+                StartCoroutine(GerarZumbi());
+            }
         }
     }
 
@@ -43,8 +47,12 @@ public class GeradorZumbis : MonoBehaviour {
         }
     }
 
+    public void AtualizarEstado(Boolean state) {
+        active = state;
+    }
+
     private bool VerificarSePodeGerarZumbi() {
-        return contadorTempo >= tempoGerarZumbi && quantidadeZumbisVivos < quantidadeMaximaZumbisVivos;
+        return active && contadorTempo >= tempoGerarZumbi && quantidadeZumbisVivos < quantidadeMaximaZumbisVivos;
     }
 
     private IEnumerator GerarZumbi() {
@@ -68,7 +76,7 @@ public class GeradorZumbis : MonoBehaviour {
     }
 
     Vector3 AleatorizarPosicao() {
-        Vector3 posicao = Random.insideUnitSphere * distanciaGeracao;
+        Vector3 posicao = UnityEngine.Random.insideUnitSphere * distanciaGeracao;
         posicao += transform.position;
         posicao.y = 0;
 
