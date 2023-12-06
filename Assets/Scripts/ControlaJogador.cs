@@ -9,7 +9,7 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
     public AudioClip somDano;
     public Status statusJogador;
 
-    public int LevelJogador = 1;
+    public int LevelJogador;
     private Vector3 direcao;
     private MovimentaJogador movimentaJogador;
     private AnimaPersonagem animaJogador;
@@ -19,6 +19,7 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
         movimentaJogador = GetComponent<MovimentaJogador>();
         animaJogador = GetComponent<AnimaPersonagem>();
         statusJogador = GetComponent<Status>();
+        LevelJogador = PlayerPrefs.GetInt("level");
     }
 
     private void Update() {
@@ -77,6 +78,7 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
     private void levelUP()
     {
         LevelJogador = LevelJogador + 1;
+        PlayerPrefs.SetInt("level", LevelJogador);
         statusJogador.uparVida(20);
         controlaInterface.sliderVidaJogador.maxValue = statusJogador.vidaInicial;
         CurarVida((int)statusJogador.vidaInicial);

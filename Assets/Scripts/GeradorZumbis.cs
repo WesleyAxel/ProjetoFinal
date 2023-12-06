@@ -14,7 +14,7 @@ public class GeradorZumbis : MonoBehaviour {
     private float contadorTempo = 0;
     private int distanciaGeracao = 3;
     private int distanciaJogador = 20;
-    private int quantidadeMaximaZumbisVivos = 2;
+    private int quantidadeMaximaZumbisVivos = 4;
     private int quantidadeZumbisVivos = 0;
     private float tempoProximoAumentoDeDificuldade = 30;
     private float contadorDeAumentarDificuldade;

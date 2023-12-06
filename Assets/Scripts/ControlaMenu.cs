@@ -33,6 +33,7 @@ public class ControlaMenu : MonoBehaviour {
     public void Jogar() {
         //StartCoroutine(MudarCena("Cena_01"));
         PlayerPrefs.SetInt("skinjogador", skinPersonagem);
+        PlayerPrefs.SetInt("level", 1);
         SceneManager.LoadScene("Cena_01");
     }
 
