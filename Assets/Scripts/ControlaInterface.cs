@@ -84,7 +84,7 @@ public class ControlaInterface : MonoBehaviour {
     }
 
     public void Reiniciar() {
-        SceneManager.LoadScene("game");
+        SceneManager.LoadScene("Menu");
     }
 
     private void AjustarPontuacaoMaxima(float tempoAtual) {
