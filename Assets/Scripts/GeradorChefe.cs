@@ -10,6 +10,7 @@ public class GeradorChefe : MonoBehaviour {
     private float tempoParaProximaGeracao = 0;
     private ControlaInterface scriptControlaInterface;
     private Transform jogador;
+    private bool temChefe = false;
 
     private void Start() {
         tempoParaProximaGeracao = tempoEntreGeracoes;
@@ -18,11 +19,12 @@ public class GeradorChefe : MonoBehaviour {
     }
 
     private void Update() {
-        if (Time.timeSinceLevelLoad > tempoParaProximaGeracao) {
+        if (!temChefe) {
             Vector3 posicaoCriacao = CalcularPosicaoMaisDistanteDoJogador();
             Instantiate(chefe, posicaoCriacao, Quaternion.identity);
             scriptControlaInterface.AparecerTextoChefeCriado();
             tempoParaProximaGeracao = Time.timeSinceLevelLoad + tempoEntreGeracoes;
+            temChefe = true;
         }
     }
 
