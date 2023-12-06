@@ -49,6 +49,14 @@ public class IniciaHacking : MonoBehaviour
         }
     }
 
+    private void EncerraGeradores()
+    {
+        foreach (GameObject spawn in spawns) {
+            GeradorZumbis gerador = spawn.GetComponent<GeradorZumbis>();
+            gerador.AtualizarEstado(false);
+        }
+    }
+
     private void MostraObjetivo(int etapa)
     {
         string textoObjetivoAtual = textoObjetivo.text;
@@ -98,9 +106,6 @@ public class IniciaHacking : MonoBehaviour
         yield return new WaitForSeconds(tempoSumir);
         
         texto.gameObject.SetActive(false);        
-
-        // Carrega nova cena
-        // SceneManager.LoadScene()
     }
 
     // Controle da música e tempo de execução
@@ -113,14 +118,21 @@ public class IniciaHacking : MonoBehaviour
         audio.Stop();
     }
 
+    private IEnumerator TransicaoCena(float tempoSumir) {
+        yield return new WaitForSeconds(tempoSumir);
+        
+        SceneManager.LoadScene("Cena_02_Transicao");
+    }
+
     private void ExecutarEvento() 
     {
+        started = true;
         MostraObjetivo(1);
         IniciaGeradores();
         StartCoroutine(DesaparecerTexto(timer + 5, textoIniciaHacking));
         StartCoroutine(TocarMusica(timer + 5, audioMusica));
         StartCoroutine(TocarMusica(timer + 5, audioHacking));
-        started = true;
+        StartCoroutine(TransicaoCena(timer + 5));
     }
 
     private void OnCollisionEnter(Collision collision)
