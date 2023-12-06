@@ -62,7 +62,7 @@ public class IniciaHacking : MonoBehaviour
         string textoObjetivoAtual = textoObjetivo.text;
 
         if (etapa == 1) {
-            textoObjetivoAtual = "<color=red>SOBREVIVA</color>";
+            textoObjetivoAtual = "<b><color=red><size=144>SOBREVIVA</size></color></b>";
         }
 
         textoObjetivo.text = textoObjetivoAtual;
