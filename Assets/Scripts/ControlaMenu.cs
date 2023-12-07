@@ -26,14 +26,14 @@ public class ControlaMenu : MonoBehaviour {
         #endif
         skin1 = jogadorPrefab.transform.Find("Personagem_SobreviventeExperiente").gameObject;
         skin2 = jogadorPrefab.transform.Find("Personagem_Cacador").gameObject;
-        skin3 = jogadorPrefab.transform.Find("Personagem_Xerife").gameObject;
+        skin3 = jogadorPrefab.transform.Find("Personagem_Alex_Shadow").gameObject;
         skin4 = jogadorPrefab.transform.Find("Personagem_HomemSobrevivente01").gameObject;
     }
 
     public void Jogar() {
         //StartCoroutine(MudarCena("Cena_01"));
         PlayerPrefs.SetInt("skinjogador", skinPersonagem);
-        PlayerPrefs.SetInt("level", 1);
+        PlayerPrefs.SetInt("level", 0);
         SceneManager.LoadScene("Cena_01");
     }
 

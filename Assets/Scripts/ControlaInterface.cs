@@ -15,18 +15,20 @@ public class ControlaInterface : MonoBehaviour {
     public Text textoChefeAparece;
     public Text textoLevelUp;
     public Image fundoInventario;
+    public Image Guia;
     public AudioClip levelUpClip;
 
     private ControlaJogador controlaJogador;
     private float pontuacaoMaxima;
     private int quantidadeDeZumbisMortos = 0;
-    private int levelJogador = 0;
+    private int levelJogador;
 
     private void Start() {
         Time.timeScale = 1;
         controlaJogador = GameObject.FindWithTag("Jogador").GetComponent<ControlaJogador>();
         sliderVidaJogador.maxValue = controlaJogador.statusJogador.vida;
         AtualizaSliderVida();
+        levelJogador = PlayerPrefs.GetInt("level");
         AtualizaLevelJogador();
         pontuacaoMaxima = PlayerPrefs.GetFloat("pontuacaoMaxima");
     }
@@ -50,7 +52,13 @@ public class ControlaInterface : MonoBehaviour {
             textoQuantidadeZumbiMortos.gameObject.SetActive(true);
             sliderVidaJogador.gameObject.SetActive(true);
         }
-       
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            Guia.gameObject.SetActive(false);
+        }
+
+
     }
 
     public void AtualizaSliderVida() {

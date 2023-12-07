@@ -20,7 +20,7 @@ public class ControlaCamera : MonoBehaviour {
         skinPersonagem = PlayerPrefs.GetInt("skinjogador");
         skin1 = jogador.transform.Find("Personagem_SobreviventeExperiente").gameObject;
         skin2 = jogador.transform.Find("Personagem_Cacador").gameObject;
-        skin3 = jogador.transform.Find("Personagem_Xerife").gameObject;
+        skin3 = jogador.transform.Find("Personagem_Alex_Shadow").gameObject;
         skin4 = jogador.transform.Find("Personagem_HomemSobrevivente01").gameObject;
 
         if (skinPersonagem == 1)

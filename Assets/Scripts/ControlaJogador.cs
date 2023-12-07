@@ -14,12 +14,14 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
     private MovimentaJogador movimentaJogador;
     private AnimaPersonagem animaJogador;
     private bool jaFezMudancaDeLevel = false;
+    private bool startGame = true;
 
     private void Start() {
         movimentaJogador = GetComponent<MovimentaJogador>();
         animaJogador = GetComponent<AnimaPersonagem>();
         statusJogador = GetComponent<Status>();
-        LevelJogador = PlayerPrefs.GetInt("level");
+        LevelJogador = PlayerPrefs.GetInt("level",1);
+        startGame = false;
     }
 
     private void Update() {
@@ -61,17 +63,20 @@ public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel {
 
     private void checaLevelUp()
     {
-        int quantidadeMortos = controlaInterface.getQuantidadeMortos();
+        if(startGame == false)
+        {
+            int quantidadeMortos = controlaInterface.getQuantidadeMortos();
 
-        if (!jaFezMudancaDeLevel && quantidadeMortos % 2 == 0 && quantidadeMortos != 0)
-        {
-            levelUP();
-            jaFezMudancaDeLevel = true;
-            controlaInterface.AtualizaLevelJogador();
-        }
-        else if (quantidadeMortos % 2 != 0)
-        {
-            jaFezMudancaDeLevel = false; // Permite fazer a mudança de level novamente
+            if (!jaFezMudancaDeLevel && quantidadeMortos % 2 == 0 && quantidadeMortos != 0)
+            {
+                levelUP();
+                jaFezMudancaDeLevel = true;
+                controlaInterface.AtualizaLevelJogador();
+            }
+            else if (quantidadeMortos % 2 != 0)
+            {
+                jaFezMudancaDeLevel = false; // Permite fazer a mudança de level novamente
+            }
         }
     }
 
