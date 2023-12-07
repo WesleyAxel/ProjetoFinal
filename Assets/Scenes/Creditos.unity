@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 23734680}
   - component: {fileID: 23734679}
   m_Layer: 5
-  m_Name: Continuar
+  m_Name: Jogar Novamente
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 545, y: -417}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: -598, y: -417}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23734679
 MonoBehaviour:
@@ -208,7 +208,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 906561458}
-        m_TargetAssemblyTypeName: IniciaCenaCreditos, Assembly-CSharp
+        m_TargetAssemblyTypeName: IniciaCenaMenu, Assembly-CSharp
         m_MethodName: MudaCena
         m_Mode: 1
         m_Arguments:
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continuar
+  m_text: Jogar Novamente
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -555,7 +555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 571, y: 438}
+  m_AnchoredPosition: {x: -544, y: 438}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348698654
@@ -578,13 +578,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Alex Shadow, finalmente consegue deter a <b><color=red>Deathwall</color></b>
-    em uma batalha nos bastidores da megacorporac@o Verstech. \r\n\r\nEm um ato final
-    de redenc@o, ele sacrifica sua conex@o com a tecnologia para desativar a <b><color=red>Deathwall</color></b>de
-    uma vez por todas.\r\n\r\nCom a Deathwall neutralizada, a tecnologia some na
-    rede interligada entre as corporac0es, e Alex com receio que a tecnologia volte
-    para assombrar sua vida, decide retirar todos seus implantes para nunca mais
-    mexer com qualquer tecnologia!"
+  m_text: Cr&ditos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -899,7 +893,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 906561455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e29993eeacdd094ebfdc5127af52b7f, type: 3}
+  m_Script: {fileID: 11500000, guid: f36b6a80c13cb83489d9ca14df092314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &984590494
@@ -937,7 +931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -544, y: 0}
+  m_AnchoredPosition: {x: 545, y: 0}
   m_SizeDelta: {x: 1080, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984590496
@@ -960,7 +954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c011e7a3efd463d4c8e8a016b7b62498, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b13512e53d87ece4ab34ff265d0f1fba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
