@@ -11,7 +11,7 @@ public class Checkpoint : MonoBehaviour
    
     private void OnCollisionEnter(Collision collision)
     {
-        // Verifica se o objeto colidido é o prefab do jogador
+        // Verifica se o objeto colidido ï¿½ o prefab do jogador
         if (collision.gameObject.CompareTag("Jogador") && collision.gameObject == jogadorPrefab)
         {
             // Executa o comando desejado
@@ -21,7 +21,7 @@ public class Checkpoint : MonoBehaviour
 
     private void ExecutarComando()
     {
-        SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("Cena_01_Transicao");
     }
 
 }

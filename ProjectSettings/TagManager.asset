@@ -9,6 +9,7 @@ TagManager:
   - Interface
   - Chefe
   - NPC
+  - Gerador
   layers:
   - Default
   - TransparentFX

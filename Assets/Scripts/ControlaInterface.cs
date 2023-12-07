@@ -14,6 +14,7 @@ public class ControlaInterface : MonoBehaviour {
     public Text textoLevelJogador;
     public Text textoChefeAparece;
     public Text textoLevelUp;
+    public Image fundoInventario;
     public AudioClip levelUpClip;
 
     private ControlaJogador controlaJogador;
@@ -30,6 +31,28 @@ public class ControlaInterface : MonoBehaviour {
         pontuacaoMaxima = PlayerPrefs.GetFloat("pontuacaoMaxima");
     }
 
+    private void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            textoLevelJogador.gameObject.SetActive(true);
+            fundoInventario.gameObject.SetActive(true);
+            textoQuantidadeZumbiMortos.gameObject.SetActive(false);
+            sliderVidaJogador.gameObject.SetActive(false);
+
+        }
+    
+        if (Input.GetKeyUp(KeyCode.I)) 
+        {
+            textoLevelJogador.gameObject.SetActive(false);
+            fundoInventario.gameObject.SetActive(false);
+            textoQuantidadeZumbiMortos.gameObject.SetActive(true);
+            sliderVidaJogador.gameObject.SetActive(true);
+        }
+       
+    }
+
     public void AtualizaSliderVida() {
         sliderVidaJogador.value = controlaJogador.statusJogador.vida;
     }
@@ -41,7 +64,7 @@ public class ControlaInterface : MonoBehaviour {
 
     public void AtualizaLevelJogador() {
         levelJogador++;
-        textoLevelJogador.text = string.Format("Level: {0}", levelJogador);
+        textoLevelJogador.text = string.Format("Alex Shadow - Level: {0}", levelJogador);
         if(levelJogador != 1)
         {
             StartCoroutine(DesabilitarTextoLevelUp(3f));
@@ -61,7 +84,7 @@ public class ControlaInterface : MonoBehaviour {
     }
 
     public void Reiniciar() {
-        SceneManager.LoadScene("game");
+        SceneManager.LoadScene("Menu");
     }
 
     private void AjustarPontuacaoMaxima(float tempoAtual) {

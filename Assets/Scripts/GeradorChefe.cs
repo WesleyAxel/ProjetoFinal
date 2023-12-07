@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GeradorChefe : MonoBehaviour {
+
+    public bool active = true;
     public float tempoEntreGeracoes = 60;
     public GameObject chefe;
     public Transform[] posicoesPossiveisGeracao;
@@ -26,6 +29,10 @@ public class GeradorChefe : MonoBehaviour {
             tempoParaProximaGeracao = Time.timeSinceLevelLoad + tempoEntreGeracoes;
             temChefe = true;
         }
+    }
+
+    public void UpdateStatus (Boolean status) {
+        active = status;
     }
 
     Vector3 CalcularPosicaoMaisDistanteDoJogador() {
