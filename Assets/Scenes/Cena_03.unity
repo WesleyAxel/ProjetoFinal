@@ -3275,6 +3275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionDistance: 3
   interactionKey: 101
+  textoNPC: {fileID: 0}
+  fundoNPC: {fileID: 0}
 --- !u!1001 &300930274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12576,6 +12578,7 @@ MonoBehaviour:
   textoLevelJogador: {fileID: 1854984531}
   textoChefeAparece: {fileID: 495190071}
   textoLevelUp: {fileID: 928633176}
+  fundoInventario: {fileID: 0}
   levelUpClip: {fileID: 8300000, guid: 9c01dcfea1205d740938f8b150432225, type: 3}
 --- !u!114 &1315762976
 MonoBehaviour:
