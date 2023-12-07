@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cena_02_Transicao.unity
     guid: e03bb003cc6803470a2a4893536d434e
+  - enabled: 1
+    path: Assets/Scenes/Cena_03.unity
+    guid: c9fd2d6eca9dce14288e41e2583c5043
   m_configObjects: {}
