@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -598, y: -417}
+  m_AnchoredPosition: {x: 496, y: -417}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23734679
@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 348698653}
   - component: {fileID: 348698655}
   - component: {fileID: 348698654}
+  - component: {fileID: 348698656}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -555,7 +556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -544, y: 438}
+  m_AnchoredPosition: {x: -431, y: -1494}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348698654
@@ -578,7 +579,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cr&ditos
+  m_text: "\"O Deus da Matriz\"\r\n\r\n\r\nEquipe de Desenvolvimento:\r\n\r\nWesley
+    Axel\r\nHenrique Oliveira\r\nGabriel Fernandes\r\nGabriel Fiali\r\nJo\xE3o Machado\r\nThiago
+    Machado\r\nVinicius Lacerda\r\nMatheus Oliveira\r\nFrancisco Sim\xE3o\r\n\r\nOrientador:\r\nMario
+    Minami\r\n\r\n\r\nAgradecimentos Especiais:\r\nAgradecemos profundamente a cada
+    membro talentoso da nossa equipe por dedicar seu tempo e esfor\xE7o na cria\xE7\xE3o
+    deste emocionante jogo. \"O Deus da Matriz\" n\xE3o teria sido poss\xEDvel sem
+    a colabora\xE7\xE3o excepcional de cada um de voc\xEAs. \r\n\r\nSeu comprometimento
+    e paix\xE3o pela cria\xE7\xE3o de experi\xEAncias \xFAnicas enriqueceram este
+    projeto, tornando-o uma jornada inesquec\xEDvel para os jogadores.\r\n\r\nEsperamos
+    que todos desfrutem desta aventura interdimensional tanto quanto n\xF3s aproveitamos
+    cri\xE1-la. Que a emo\xE7\xE3o e a imagina\xE7\xE3o despertadas por \"O Deus
+    da Matriz\" acompanhem voc\xEAs para al\xE9m das fronteiras do jogo.\r\n\r\n\r\nTecnologias
+    Utilizadas:\r\n\r\nUnity 3D\r\nPhotoshop\r\nBlender\r\n\r\nAssets utilizados:\r\nhttps://assetstore.unity.com/packages/3d/environments/sci-fi/low-poly-sci-fi-set-110775\r\nhttps://assetstore.unity.com/packages/3d/characters/low-poly-office-pack-characters-props-119386\r\nhttps://assetstore.unity.com/packages/3d/environments/lowpoly-server-room-props-197268\r\n\r\nSons
+    utilizados:\r\nhttps://www.youtube.com/watch?v=59iimTfkJTc\r\n\r\nGeradores de
+    Imagem:\r\nhttps://playground.com/\r\n\r\n\r\nAgradecemos a todos que tornaram
+    poss\xEDvel a realiza\xE7\xE3o deste \xE9pico RPG. \r\n\r\n\xA9\uFE0F 2023 -
+    Deus da Matriz"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -655,6 +672,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348698652}
   m_CullTransparentMesh: 1
+--- !u!114 &348698656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348698652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809a10c1bb82e604db7983602e4951cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeScroll: 20
 --- !u!1 &360946917
 GameObject:
   m_ObjectHideFlags: 0

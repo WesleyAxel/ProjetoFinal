@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ControlaChefe : MonoBehaviour, IMatavel {
 
@@ -77,6 +78,7 @@ public class ControlaChefe : MonoBehaviour, IMatavel {
         scriptControlaInterface.AtualizarQuantidadeDeZumbisMortos();
         Instantiate(kitMedico, transform.position, Quaternion.identity);
         Destroy(gameObject, 3);
+        SceneManager.LoadScene("Cena_03_Transicao");
     }
 
     private void AtualizarInterface() {
